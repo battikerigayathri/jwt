@@ -2,11 +2,12 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 const app = express();
 const port = 2000;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-const jwt = require("jsonwebtoken");
+
 mongoose.connect("mongodb://localhost:27017/HASHINGMETHOD")
   .then(() => {
     console.log({ message: "database connected successfully", status: true });
