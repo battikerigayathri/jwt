@@ -7,7 +7,12 @@ const port = 2000;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 const jwt = require("jsonwebtoken");
-
+mongoose.connect("mongodb://localhost:27017/HASHINGMETHOD")
+  .then(() => {
+    console.log({ message: "database connected successfully", status: true });
+  }).catch((error) => {
+    console.log({ message: "failed to connect db", status: false });
+})
 //Define the payload(claims)
 const users = {
   
